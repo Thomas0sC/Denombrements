@@ -30,12 +30,14 @@ namespace Denombrements
             int choix = 1;
             while (choix != 0)
             {
-                Console.WriteLine("Permutation ...................... 1");
-                Console.WriteLine("Arrangement ...................... 2");
-                Console.WriteLine("Combinaison ...................... 3");
-                Console.WriteLine("Quitter .......................... 0");
-                Console.Write("Choix :                            ");
-                choix = int.Parse(Console.ReadLine());
+                do {
+                    Console.WriteLine("Permutation ...................... 1");
+                    Console.WriteLine("Arrangement ...................... 2");
+                    Console.WriteLine("Combinaison ...................... 3");
+                    Console.WriteLine("Quitter .......................... 0");
+                    Console.Write("Choix :                            ");
+                    choix = int.Parse(Console.ReadLine());
+                } while (choix != 0 && choix != 1 && choix != 2 && choix != 3);
 
                 if (choix == 0) { Environment.Exit(0); }
 
