@@ -9,6 +9,19 @@ namespace Denombrements
     class Program
     {
         /// <summary>
+        /// fonction permettant la multiplication d'une suite d'entiers d'une valeur à une autre
+        /// </summary>
+        /// <param name="compteurBoucle"></param>
+        /// <param name="total"></param>
+        /// <returns>Le résultat</returns>
+        static long multiplication(int compteurBoucle, int total)
+        {
+            long resultat = 1;
+            for (int k = compteurBoucle; k <= total; k++)
+                resultat *= k;
+            return resultat;
+        }
+        /// <summary>
         /// Module principal
         /// </summary>
         /// <param name="args"></param>
@@ -32,10 +45,7 @@ namespace Denombrements
                     Console.Write("nombre total d'éléments à gérer = ");
                     int nombre = int.Parse(Console.ReadLine());
                     // Calcul du résultat
-                    long resultat = 1;
-                    for (int k = 1; k <= nombre; k++)
-                        resultat *= k;
-                    Console.WriteLine(nombre + "! = " + resultat);
+                    Console.WriteLine(nombre + "! = " + multiplication(1, nombre));
                 }
                 else
                 {
@@ -48,10 +58,7 @@ namespace Denombrements
                         Console.Write("nombre d'éléments dans le sous ensemble = ");
                         int nombre = int.Parse(Console.ReadLine());
                         // Calcul du résultat
-                        long resultat = 1;
-                        for (int k = (total - nombre + 1); k <= total; k++)
-                            resultat *= k;
-                        Console.WriteLine("A(" + total + "/" + nombre + ") = " + resultat);
+                        Console.WriteLine("A(" + total + "/" + nombre + ") = " + multiplication((total - nombre + 1), total));
                     }
                     else
                     {
@@ -61,15 +68,8 @@ namespace Denombrements
                         // Saisie du nombre correspondant au sous ensemble
                         Console.Write("nombre d'éléments dans le sous ensemble = ");
                         int nombre = int.Parse(Console.ReadLine());
-                        // Calcul du résultat 1
-                        long resultat1 = 1;
-                        for (int k = (total - nombre + 1); k <= total; k++)
-                            resultat1 *= k;
-                        // Calcul du résultat 1
-                        long resultat2 = 1;
-                        for (int k = 1; k <= nombre; k++)
-                            resultat2 *= k;
-                        Console.WriteLine("C(" + total + "/" + nombre + ") = " + (resultat1 / resultat2));
+                        // Calcul du résultat
+                        Console.WriteLine("C(" + total + "/" + nombre + ") = " + (multiplication((total - nombre + 1), total) / multiplication(1, nombre)));
                     }
                 }
             }
